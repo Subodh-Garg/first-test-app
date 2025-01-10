@@ -1,42 +1,97 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+:root {
+  --parent-color: #4a90e2;
+  --child-color: #50c878;
+  --grandchild-color: #ff6b6b;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.parent {
+  background: linear-gradient(to bottom, #f8f9fa, #e9ecef);
+  border: 3px solid var(--parent-color);
+  border-radius: 15px;
+  padding: 25px;
+  margin: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.children-container {
+  display: flex;
+  gap: 25px;
+  margin-top: 20px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.child {
+  background: linear-gradient(to bottom, #ffffff, #f8f9fa);
+  border: 2px solid var(--child-color);
+  border-radius: 12px;
+  padding: 20px;
+  flex: 1;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s;
 }
 
-.card {
-  padding: 2em;
+.child:hover {
+  transform: translateY(-2px);
 }
 
-.read-the-docs {
-  color: #888;
+.grandchild {
+  background: linear-gradient(to right, #ffffff, #fafafa);
+  border: 2px solid var(--grandchild-color);
+  border-radius: 8px;
+  padding: 15px;
+  margin: 10px 0;
+  transition: all 0.2s;
+}
+
+.grandchild:hover {
+  transform: scale(1.02);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h2, h3 {
+  color: #2c3e50;
+  margin-bottom: 15px;
+}
+
+.count-button {
+  background-color: var(--parent-color);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  margin-right: 20px;
+}
+
+.count-button:hover {
+  background-color: #357abd;
+}
+
+/* Add component labels */
+.parent::before {
+  content: '🌳 Parent';
+  position: absolute;
+  top: -10px;
+  left: 20px;
+  background: white;
+  padding: 0 10px;
+  font-size: 0.8em;
+  color: var(--parent-color);
+}
+
+.child::before {
+  content: '🌿';
+  position: absolute;
+  top: -10px;
+  left: 20px;
+  background: white;
+  padding: 0 10px;
+  font-size: 0.8em;
+  color: var(--child-color);
+}
+
+.grandchild::before {
+  content: '🍃';
+  margin-right: 5px;
+  color: var(--grandchild-color);
 }
